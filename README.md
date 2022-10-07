@@ -42,5 +42,5 @@
 ## Ссылки
 * [Критерии диплома веб-разработчика](https://code.s3.yandex.net/web-developer/static/new-program/web-diploma-criteria-2.0/index.html),   
 * IP 62.84.116.155,  
-* Frontend: movies-chernyadeva.nomoredomains.icu,  
-* Backend: api.movies-chernyadeva.nomoredomains.icu.
+* Frontend: https://movies-chernyadeva.nomoredomains.icu,  
+* Backend: https://api.movies-chernyadeva.nomoredomains.icu.

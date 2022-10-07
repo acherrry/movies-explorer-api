@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: 'movies-chernyadeva.nomoredomains.icu',
+    origin: 'https://movies-chernyadeva.nomoredomains.icu',
     credentials: true,
   }),
 );
