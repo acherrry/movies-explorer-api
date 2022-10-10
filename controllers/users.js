@@ -95,9 +95,13 @@ const editProfile = async (req, res, next) => {
   try {
     const userId = req.user._id;
     const { email, name } = req.body;
-    const user = await User
+    const user = await User.findOne({ email });
+    if (user) {
+      throw new ConflictError('При обновлении указан email, который занял другой пользователь');
+    }
+    const renewedUser = await User
       .findByIdAndUpdate(userId, { email, name }, { new: true, runValidators: true });
-    if (!user) {
+    if (!renewedUser) {
       throw new NotFoundError('Пользователь с указанным ID не найден');
     }
     return res.status(OK).send({
