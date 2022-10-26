@@ -72,7 +72,11 @@ const login = async (req, res, next) => {
   }
 };
 
-const loginOut = async (req, res) => res.status(200).clearCookie('jwt').send();
+const loginOut = async (req, res) => res.status(200).clearCookie('jwt', {
+  httpOnly: true,
+  sameSite: 'none',
+  secure: true,
+}).send();
 
 const getCurrentUser = async (req, res, next) => {
   const userId = req.user._id;
