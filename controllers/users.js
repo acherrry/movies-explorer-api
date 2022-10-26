@@ -57,6 +57,8 @@ const login = async (req, res, next) => {
     res.cookie('jwt', token, {
       expiresIn: 604800,
       httpOnly: true,
+      sameSite: 'none',
+      secure: true,
     });
     return res.status(OK).send({
       name: user.name,
