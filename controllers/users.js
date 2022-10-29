@@ -98,8 +98,8 @@ const getCurrentUser = async (req, res, next) => {
 };
 
 const editProfile = async (req, res, next) => {
-  const userId = req.user._id;
   try {
+    const userId = req.user._id;
     const { name, email } = req.body;
     const user = await User.findOne({ email });
     if (user) {
