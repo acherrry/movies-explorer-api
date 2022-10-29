@@ -110,7 +110,10 @@ const editProfile = async (req, res, next) => {
     if (!renewedUser) {
       throw new NotFoundError('Пользователь с указанным ID не найден');
     }
-    return res.status(OK).send({ data: user });
+    return res.status(OK).send({
+      name: renewedUser.name,
+      email: renewedUser.email,
+    });
   } catch (err) {
     if (err.name === 'ValidationError') {
       return next(new BadRequestError('Переданы некорректные данные при обновлении профиля'));
