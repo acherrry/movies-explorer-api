@@ -63,6 +63,7 @@ const login = async (req, res, next) => {
     return res.status(OK).send({
       name: user.name,
       email: user.email,
+      id: user._id,
     });
   } catch (err) {
     if (err.name === 'ValidationError') {
@@ -88,6 +89,7 @@ const getCurrentUser = async (req, res, next) => {
     return res.status(OK).send({
       name: user.name,
       email: user.email,
+      id: user._id,
     });
   } catch (err) {
     if (err.name === 'CastError') {
