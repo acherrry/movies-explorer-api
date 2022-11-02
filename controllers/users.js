@@ -60,7 +60,11 @@ const login = async (req, res, next) => {
       sameSite: 'none',
       secure: true,
     });
-    return res.status(OK).send(user);
+    return res.status(OK).send({
+      name: user.name,
+      email: user.email,
+      _id: user._id,
+    });
   } catch (err) {
     if (err.name === 'ValidationError') {
       return next(new BadRequestError('Переданы некорректные данные для авторизации'));
@@ -82,7 +86,11 @@ const getCurrentUser = async (req, res, next) => {
     if (!user) {
       throw new NotFoundError('Пользователь по указанному ID не найден');
     }
-    return res.status(OK).send(user);
+    return res.status(OK).send({
+      name: user.name,
+      email: user.email,
+      _id: user._id,
+    });
   } catch (err) {
     if (err.name === 'CastError') {
       return next(new BadRequestError('Невалидные переданные данные'));
