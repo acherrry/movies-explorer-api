@@ -87,9 +87,7 @@ const getCurrentUser = async (req, res, next) => {
       throw new NotFoundError('Пользователь по указанному ID не найден');
     }
     return res.status(OK).send({
-      name: user.name,
-      email: user.email,
-      id: user._id,
+      user,
     });
   } catch (err) {
     if (err.name === 'CastError') {
